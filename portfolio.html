@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kranthikiran Saidala - Web Developer Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --background-color: #f4f4f4;
+            --text-color: #333;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: var(--secondary-color) 3px solid;
+        }
+
+        header h1 {
+            margin: 0;
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        .widget {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .widget:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3), 0 8px 15px rgba(46, 204, 113, 0.3);
+        }
+
+        .widget h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 5px 0;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .summary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .summary h2 {
+            color: white;
+            border-bottom: none;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Kranthikiran Saidala</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="summary">
+            <h2>Professional Summary</h2>
+            <p>Dedicated and innovative Web Developer with a strong foundation in front-end technologies. Graduate from Osmania University with a proven track record of creating responsive and user-friendly web applications. Passionate about leveraging cutting-edge web technologies to deliver exceptional user experiences.</p>
+        </div>
+
+        <div class="grid">
+            <div class="widget" id="about">
+                <h2>About Me</h2>
+                <p>Web Developer with a passion for creating interactive and user-friendly websites. Specializing in front-end development with a strong foundation in HTML, CSS, and JavaScript.</p>
+            </div>
+
+            <div class="widget" id="education">
+                <h2>Education</h2>
+                <ul>
+                    <li><strong>Sanghamitra Degree College, Osmania University</strong><br>Graduate with 8.0 CGPA (2021-2024) </li>
+                    <li><strong>Sri Chaitanya Junior College</strong><br>High School - 77%</li>
+                </ul>
+            </div>
+
+            <div class="widget" id="skills">
+                <h2>Skills</h2>
+                <div class="skills">
+                    <span class="skill">HTML</span>
+                    <span class="skill">CSS</span>
+                    <span class="skill">JavaScript</span>
+                </div>
+            </div>
+
+            <div class="widget" id="experience">
+                <h2>Professional Experience</h2>
+                <p><strong>Role:</strong> Web Developer</p>
+                <p><strong>Industry:</strong> Software Development</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const widgets = document.querySelectorAll('.widget');
+            widgets.forEach(widget => {
+                widget.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                widget.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
