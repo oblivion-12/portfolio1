@@ -1,169 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kranthikiran Saidala - Web Developer Portfolio</title>
-    <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2ecc71;
-            --background-color: #f4f4f4;
-            --text-color: #333;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-        }
-
-        header {
-            background: var(--primary-color);
-            color: white;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: var(--secondary-color) 3px solid;
-        }
-
-        header h1 {
-            margin: 0;
-            text-align: center;
-            font-size: 2.5em;
-        }
-
-        .widget {
-            background: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .widget:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3), 0 8px 15px rgba(46, 204, 113, 0.3);
-        }
-
-        .widget h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        ul li {
-            padding: 5px 0;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill {
-            background: var(--primary-color);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9em;
-        }
-
-        .summary {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .summary h2 {
-            color: white;
-            border-bottom: none;
-        }
-
-        @media (min-width: 768px) {
-            .grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KranthiKiran Saidala Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #1a1a1a;
+      color: #e4e4e4;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: #222;
+      color: #f1f1f1;
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    .highlight {
+      color: #d1b3ff;
+      font-weight: 500;
+    }
+    nav {
+      margin-top: 20px;
+    }
+    nav a {
+      color: #e4e4e4;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #dab6fc;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #dab6fc;
+      margin-top: 10px;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .mobile-nav a {
+      margin: 10px 0;
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .mobile-nav.show {
+        display: flex;
+      }
+    }
+    .container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 30px;
+    }
+    section {
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 1s ease;
+      border-bottom: 1px solid #2a2a2a;
+      padding-bottom: 30px;
+    }
+    section.left {
+      transform: translateX(-60px) translateY(100px);
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section.left.visible {
+      transform: translateY(0) translateX(0);
+    }
+    h2 {
+      color: #dab6fc;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    ul li {
+      background-color: #262626;
+      padding: 12px 18px;
+      margin-bottom: 10px;
+      border-left: 5px solid #dab6fc;
+      transition: background-color 0.3s;
+    }
+    ul li:hover {
+      background-color: #2f2f2f;
+    }
+    a {
+      color: #dab6fc;
+    }
+    a:hover {
+      color: #f2d4ff;
+    }
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .dynamic-text {
+      font-size: 1.2rem;
+      margin-top: 15px;
+      animation: fadeIn 1s ease-in-out;
+      color: #dab6fc;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .cube {
+      width: 26px;
+      height: 26px;
+      position: absolute;
+      background: #d1b3ff;
+      transform: rotateX(45deg) rotateY(45deg);
+      opacity: 0.5;
+      transition: transform 3s ease, opacity 3s ease;
+    }
+    .cube.hide {
+      transform: translateY(-600px) rotateX(405deg) rotateY(405deg);
+      opacity: 0;
+    }
+    .cube.reappear {
+      transform: translateY(0) scale(1.5);
+      opacity: 0.3;
+    }
+    .corner-accent {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background-color: #dab6fc;
+      border-radius: 50%;
+      opacity: 0.4;
+    }
+    .corner-accent.topleft {
+      top: 10px;
+      left: 10px;
+    }
+    .corner-accent.topright {
+      top: 10px;
+      right: 10px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Kranthikiran Saidala</h1>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="summary">
-            <h2>Professional Summary</h2>
-            <p>Dedicated and innovative Web Developer with a strong foundation in front-end technologies. Graduate from Osmania University with a proven track record of creating responsive and user-friendly web applications. Passionate about leveraging cutting-edge web technologies to deliver exceptional user experiences.</p>
-        </div>
-
-        <div class="grid">
-            <div class="widget" id="about">
-                <h2>About Me</h2>
-                <p>Web Developer with a passion for creating interactive and user-friendly websites. Specializing in front-end development with a strong foundation in HTML, CSS, and JavaScript.</p>
-            </div>
-
-            <div class="widget" id="education">
-                <h2>Education</h2>
-                <ul>
-                    <li><strong>Sanghamitra Degree College, Osmania University</strong><br> Bachelores of Computer Applications Graduate with 7.3 CGPA (2021-2024) </li>
-                    <li><strong>Sri Chaitanya Junior College</strong><br>High School: 8.2 CGPA</li>
-                </ul>
-            </div>
-
-            <div class="widget" id="skills">
-                <h2>Skills</h2>
-                <div class="skills">
-                    <span class="skill">HTML</span>
-                    <span class="skill">CSS</span>
-                    <span class="skill">JavaScript</span>
-                </div>
-            </div>
-
-            <div class="widget" id="experience">
-                <h2>Professional Experience</h2>
-                <p><strong>Role:</strong> Web Developer</p>
-                <p><strong>Industry:</strong> Software Development</p>
-            </div>
-        </div>
+  <header>
+    <div class="corner-accent topleft"></div>
+    <div class="corner-accent topright"></div>
+    <h1>Kranthikiran Saidala</h1>
+    <p class="highlight">Linux Administration | AWS Cloud | DevOps Learner</p>
+    <p class="dynamic-text" id="typed-text"></p>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#about">Objective</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
     </div>
+    <!-- Floating cubes -->
+    <div class="cube" style="top: 20px; left: 30px;"></div>
+    <div class="cube" style="top: 100px; left: 80px;"></div>
+    <div class="cube" style="top: 60px; left: 150px;"></div>
+    <div class="cube" style="top: 90px; left: 250px;"></div>
+    <div class="cube" style="top: 40px; left: 320px;"></div>
+    <div class="cube" style="top: 30px; right: 30px;"></div>
+    <div class="cube" style="top: 110px; right: 80px;"></div>
+    <div class="cube" style="top: 70px; right: 150px;"></div>
+    <div class="cube" style="top: 100px; right: 250px;"></div>
+    <div class="cube" style="top: 50px; right: 320px;"></div>
+  </header>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const widgets = document.querySelectorAll('.widget');
-            widgets.forEach(widget => {
-                widget.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.05)';
-                });
-                widget.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1)';
-                });
-            });
-        });
-    </script>
+  <div class="container">
+    <section id="about" class="left">
+      <h2>Objective</h2>
+      <p>Motivated <span class="highlight">Cloud & Networking</span> fresher with hands-on experience in AWS services and network troubleshooting. I am a fast learner and enjoy applying my technical knowledge in real-world environments.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Python, Java, SQL</li>
+        <li>AWS: EC2, S3, IAM, RDS, AMI</li>
+        <li>Linux Administration, Windows Troubleshooting</li>
+        <li>CI/CD: Git, GitHub</li>
+        <li>Networking: TCP/IP, DNS, VPN</li>
+        <li>Microsoft Office, Google Workspace</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="left">
+      <h2>Projects</h2>
+      <ul>
+        <li><strong>Cloud Setup:</strong> Configured EC2, IAM, S3 for secure deployment.</li>
+        <li><strong>Networking Tasks:</strong> Created VPCs and security groups, assisted in firewall configurations.</li>
+        <li><strong>Portfolio Website:</strong> Designed and built using HTML, CSS, and dynamic animations.</li>
+      </ul>
+    </section>
+
+    <section id="achievements" class="left">
+      <h2>Achievements & Activities</h2>
+      <ul>
+        <li>Completed AWS re/Start Program</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="left">
+      <h2>Contact</h2>
+      <p>Email: <a href="#">karansaidal@gmail.com</a></p>
+      <p>Location: Hyderabad, Telangana</p>
+      <p>Phone: <a href="#">+91 9834938051</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/kranthikiran-saidala/" target="_blank">linkedin.com/in/kranthi-kiran-saidala</a></p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 KranthiKiran Saidala. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const textArray = [
+      "Turning ideas into reality.",
+      "Building responsive websites.",
+      "Exploring cloud technologies.",
+      "Learning DevOps practices."
+    ];
+
+    let index = 0;
+    const typedText = document.getElementById("typed-text");
+
+    function typeNextText() {
+      typedText.style.opacity = 0;
+      setTimeout(() => {
+        typedText.textContent = textArray[index];
+        typedText.style.opacity = 1;
+        index = (index + 1) % textArray.length;
+      }, 300);
+    }
+
+    typeNextText();
+    setInterval(typeNextText, 3000);
+
+    const sections = document.querySelectorAll("section");
+    const cubes = document.querySelectorAll(".cube");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          cubes.forEach(cube => {
+            cube.classList.remove("hide");
+            setTimeout(() => {
+              cube.classList.add("hide");
+              setTimeout(() => cube.classList.add("reappear"), 3000);
+            }, 200);
+          });
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    function toggleMenu() {
+      const mobileNav = document.getElementById("mobileNav");
+      mobileNav.classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
