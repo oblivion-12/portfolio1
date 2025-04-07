@@ -13,25 +13,26 @@
     }
     body {
       font-family: 'Space Grotesk', sans-serif;
-      background: #1a1a1a;
+      background: linear-gradient(135deg, #1a1a1a 0%, #262626 100%);
       color: #e4e4e4;
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
     header {
       background: #222;
       color: #f1f1f1;
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
     header h1 {
-      font-size: 3.2rem;
-      font-weight: 500;
+      font-size: 3.5rem;
+      font-weight: 600;
       margin-bottom: 15px;
     }
     .highlight {
-      color: #d1b3ff;
+      color: #dab6fc;
       font-weight: 500;
     }
     nav {
@@ -42,7 +43,7 @@
       margin: 0 15px;
       text-decoration: none;
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 1.1rem;
       transition: color 0.3s ease;
     }
     nav a:hover {
@@ -142,21 +143,16 @@
       100% { opacity: 1; transform: translateY(0); }
     }
     .cube {
-      width: 26px;
-      height: 26px;
+      width: 20px;
+      height: 20px;
       position: absolute;
-      background: #d1b3ff;
-      transform: rotateX(45deg) rotateY(45deg);
-      opacity: 0.5;
-      transition: transform 3s ease, opacity 3s ease;
+      background: #dab6fc;
+      opacity: 0.4;
+      animation: floatCube 8s infinite ease-in-out;
     }
-    .cube.hide {
-      transform: translateY(-600px) rotateX(405deg) rotateY(405deg);
-      opacity: 0;
-    }
-    .cube.reappear {
-      transform: translateY(0) scale(1.5);
-      opacity: 0.3;
+    @keyframes floatCube {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
     }
     .corner-accent {
       position: absolute;
@@ -199,16 +195,10 @@
       <a href="#contact">Contact</a>
     </div>
     <!-- Floating cubes -->
-    <div class="cube" style="top: 20px; left: 30px;"></div>
-    <div class="cube" style="top: 100px; left: 80px;"></div>
-    <div class="cube" style="top: 60px; left: 150px;"></div>
-    <div class="cube" style="top: 90px; left: 250px;"></div>
-    <div class="cube" style="top: 40px; left: 320px;"></div>
-    <div class="cube" style="top: 30px; right: 30px;"></div>
-    <div class="cube" style="top: 110px; right: 80px;"></div>
-    <div class="cube" style="top: 70px; right: 150px;"></div>
-    <div class="cube" style="top: 100px; right: 250px;"></div>
-    <div class="cube" style="top: 50px; right: 320px;"></div>
+    <div class="cube" style="top: 30px; left: 60px;"></div>
+    <div class="cube" style="top: 100px; left: 180px;"></div>
+    <div class="cube" style="top: 70px; right: 60px;"></div>
+    <div class="cube" style="top: 150px; right: 200px;"></div>
   </header>
 
   <div class="container">
@@ -283,18 +273,10 @@
     setInterval(typeNextText, 3000);
 
     const sections = document.querySelectorAll("section");
-    const cubes = document.querySelectorAll(".cube");
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          cubes.forEach(cube => {
-            cube.classList.remove("hide");
-            setTimeout(() => {
-              cube.classList.add("hide");
-              setTimeout(() => cube.classList.add("reappear"), 3000);
-            }, 200);
-          });
         }
       });
     }, {
